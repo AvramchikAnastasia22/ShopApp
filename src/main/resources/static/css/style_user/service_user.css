@@ -26,8 +26,14 @@
 }
 .list_servie_user_all h2{
     margin-left: 200px;
-    color: #ec5252;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 1000px;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 10px;
 }
 .l{
     margin-left: 200px;
@@ -66,7 +72,18 @@
     text-overflow: ellipsis;
 }
 
-
+.service_info li{
+    text-align: center;
+    list-style-type: none;
+    margin-left: -32px;
+    margin-top: 10px;
+    border-left: none;
+    border-right: none;
+    color: lime;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .take_order_all h2{
     margin-left: 200px;
     color: #ec5252;

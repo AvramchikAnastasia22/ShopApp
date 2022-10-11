@@ -92,8 +92,9 @@
             </table>
         </div>
     </div>
-    <div class="employee_user" id="employee_user"hidden>
+    <div class="employee_user" id="employee_user">
             <h2>Наши курьеры</h2>
+        <div class="m">
             <div th:each="employee:${all_employee}"  class="card_emploeyy">
                 <div class="card-body">
                     <img th:src="'/img_employee/'+${employee.getName_photo_file()}">
@@ -104,6 +105,7 @@
                     <li th:text="${employee.getDate_settled()}" class="list-group-item"></li>
                 </ul>
             </div>
+        </div>
     </div>
     <div class="service_user" id="service_user"hidden >
         <div class="tools_service_user">
@@ -116,6 +118,11 @@
                 <div th:each="service:${list_service}" class="service_user_all">
                     <img th:src="'/img_service/'+${service.getName_photo_file()}">
                     <label th:text="${service.getName_service()}"></label>
+                    <div class="service_info">
+                        <ul>
+                            <li ><i style="float: left;margin-top: 5px;margin-left: 10px" class="fa fa-money" aria-hidden="true"></i><label th:text="${service.getPrice()}+' BY'"></label></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

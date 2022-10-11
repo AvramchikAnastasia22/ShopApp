@@ -44,3 +44,14 @@ body{
     width: 200px;
     height: 300px;
 }
+.m{
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 1180px;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 20px;
+}
