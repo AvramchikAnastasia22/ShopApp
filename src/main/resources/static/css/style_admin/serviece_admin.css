@@ -1,0 +1,128 @@
+.service_admin{
+    position: absolute;
+    border: 2px solid silver;
+    width: 1200px;
+    height: 490px;
+    margin-left: 15%;
+    margin-top: 2%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.service_tools{
+    position: absolute;
+    border: 2px solid silver;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    width: 200px;
+    height: 486px;
+}
+.service_tools button{
+    background-color: transparent;
+    width: 200px;
+    height: 100px;
+    color: #ec5252;
+    border: 2px solid silver;
+    border-top: none;
+}
+.list_service{
+    margin-left: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 1000px;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+.service{
+    background: rgba(107, 97, 97, 0.6);
+    border: 2px solid #ec5252;
+    width: 200px;
+    height: 280px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.service_photo img{
+    margin-left: 50px;
+    margin-top: 10px;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+}
+.service_photo label{
+    width: 200px;
+    text-align: center;
+    color: silver;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.service_info li{
+    text-align: center;
+    list-style-type: none;
+    margin-left: -32px;
+    border: 2px solid silver;
+    margin-top: 10px;
+    border-left: none;
+    border-right: none;
+    color: lime;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.service a{
+    margin-left: 30%;
+}
+
+.add_service{
+    margin-left: 200px;
+    width: 1000px;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+.add_service img{
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+    height: 200px;
+    width: 200px;
+}
+.add_service label{
+    margin-top: 10px;
+    color: silver;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    font-size: 18px;
+}
+.add_service h2{
+    color: #ec5252;
+    height: 60px;
+    margin-right: -5px;
+    text-align: center;
+}
+.add_service button{
+    width: 300px;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: 35%;
+}
+.add_service_info{
+    margin-left: 280px;
+}
+.add_service_info input{
+    width: 450px;
+    margin-bottom: 35px;
+    font-size: 17px;
+    text-align: center;
+    background-color: transparent;
+    outline: none;
+    color: silver;
+    border: 2px solid #866c03;
+}
+

@@ -1,0 +1,33 @@
+body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.block_menu{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 1550px;
+    height: 760px;
+}
+.block_menu h3{
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding-left: 500px;
+    color: #ec5252;
+}
+.block_menu button{
+    margin-left: 475px;
+}
+.block_menu textarea{
+    width: 500px;
+    height: 300px;
+    margin-left: 475px;
+}
+#close_ban_menu{
+    float: right;
+    margin-right: 50px;
+    margin-top: 30px;
+    background-color: transparent;
+    font-size: 38px;
+    color: #6e6c6c;
+    border: none;
+}

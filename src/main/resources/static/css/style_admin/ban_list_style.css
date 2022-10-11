@@ -1,0 +1,59 @@
+.ban_list_admin{
+    position: absolute;
+    border: 2px solid silver;
+    width: 1200px;
+    height: 500px;
+    margin-left: 15%;
+    margin-top: 2%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+}
+.ban_list_admin h2{
+    color: #ec5252;
+    text-align: center;
+}
+.ban_list_admin table{
+    width: 1100px;
+    border: 2px solid silver;
+    border-collapse: collapse;
+    border: 2px solid lime;
+}
+.ban_list_admin img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+}
+.ban_list_admin th{
+    text-align: center;
+    color: #ec5252;
+}
+.ban_list_admin a{
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 150px;
+    text-align: center;
+    color: white !important;
+}
+.ban_list_admin td{
+    background: rgba(107, 97, 97, 0.6);
+    color: silver;
+    font-weight: 500;
+}
+.ban_list_admin th,td{
+    padding: 2px; /* Поля вокруг содержимого ячеек */
+    border:2px solid silver; /* Граница между ячейками */
+    width: 150px;
+}
+.ban_list_admin input{
+    width: 450px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background: transparent;
+    color: silver;
+    border: 2px solid #7a6910;
+    outline: none;
+    border-radius: 10px;
+}

@@ -1,0 +1,72 @@
+body{
+    background-image: url(/images/Фон.jpg);
+}
+.block_aut_reg{
+    border: 2px solid silver;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    width: 400px;
+    padding-bottom: 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.button_aut_reg button{
+    width: 180px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid silver;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: 10px;
+    border-top: none;
+    height: 40px;
+    color: silver;
+    font-weight: 600;
+    font-size: 20px;
+
+}
+.button_aut_reg{
+    margin-bottom: 30px;
+}
+.button_aut_reg button:not([disabled]):hover{
+    background-color: #7a6910;
+}
+
+.autorization_block h2{
+    color: silver;
+    text-align: center;
+}
+.autorization_block input{
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    background-color: #dcd8d8;
+}
+.autorization_block label{
+    color: red;
+    margin-left: 10%;
+    margin-bottom: 10px;
+}
+.autorization_block button{
+    background-color: #866c03;
+    font-size: 18px;
+    width: 200px;
+    margin-left: 25%;
+    font-weight: 600;
+    color: silver;
+}
+.registration_block input{
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+.registration_block button{
+    background-color: #866c03;
+    font-size: 18px;
+    width: 220px;
+    margin-left: 22%;
+    font-weight: 600;
+    margin-top: 10px;
+    color: silver;
+}

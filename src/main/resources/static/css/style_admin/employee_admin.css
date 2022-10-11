@@ -1,0 +1,154 @@
+.employee_admin{
+    position: absolute;
+    border: 2px solid silver;
+    width: 1200px;
+    height: 490px;
+    margin-left: 15%;
+    margin-top: 2%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.tool_employee{
+    position: absolute;
+    border: 2px solid silver;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    width: 200px;
+    height: 486px;
+}
+.tool_employee button{
+    background-color: transparent;
+    width: 200px;
+    height: 100px;
+    color: #ec5252;
+    border: 2px solid silver;
+    border-top: none;
+}
+.add_empoyee{
+    margin-left: 200px;
+    position: absolute;
+    width: 1000px;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: rgba(107, 97, 97, 0.6);
+    padding-right: 10px;
+}
+.add_empoyee .reg_emoloyee_1 label{
+    width: 150px;
+    text-align: center;
+    color: silver;
+}
+.add_empoyee h2{
+    text-align: center;
+    color: #ec5252;
+}
+.reg_emoloyee_1{
+    padding-left: 30px;
+}
+.add_empoyee .reg_emoloyee_1 img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+}
+.add_empoyee .reg_emoloyee_2{
+    position: absolute;
+    margin-top: -160px;
+    margin-left: 210px;
+}
+.reg_emoloyee_2 input{
+    width: 250px;
+}
+.add_empoyee .reg_emoloyee_3{
+    position: absolute;
+    margin-top: -70px;
+    margin-left: 210px;
+}
+.reg_emoloyee_3 input{
+    width: 250px;
+}
+.add_empoyee button{
+    margin-left: 380px;
+    width: 300px;
+}
+.panal_position{
+    margin-top: 20px;
+    border: 2px solid #ec5252;
+    height: 210px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.panal_position h4{
+    text-align: center;
+    color: silver;
+    border-bottom:2px solid #ec5252;
+    margin: 0px;
+}
+.position_all{
+    border: none;
+    color: silver;
+    background: rgba(0, 0, 0, 0.3);
+    height: 40px;
+    cursor: pointer;
+    transition: .5s linear;
+    border-bottom: 2px solid #ec5252;
+}
+.position_all h5{
+    margin: 0px;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+
+.list_employee{
+    margin-left: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 1000px;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+.employee{
+    background: rgba(107, 97, 97, 0.6);
+    display: flex;
+    padding: 10px;
+    width: 1200px;
+    height: 200px;
+    border-bottom: 2px solid #ec5252;
+}
+.employee  label{
+    margin-left: 20px;
+    color: silver;
+}
+.employee input{
+    font-size: 17px;
+    margin-left: 20px;
+    width: 300px;
+    text-align: center;
+    cursor: default;
+    background-color: transparent;
+    outline: none;
+    color: silver;
+    border: 2px solid #866c03;
+}
+.employee a{
+    padding-top: 60px;
+    text-align: center;
+    height: 150px;
+    margin-top: 20px;
+    margin-left: 80px;
+}
+.employee img{
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+    width: 120px;
+    height: 120px;
+    margin-top: 25px;
+    margin-right: 40px;
+}

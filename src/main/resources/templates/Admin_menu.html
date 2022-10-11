@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <link href= "https://use.fontawesome.com/releases/v5.6.1/css/all.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="/static/css/style_admin/tools_admin.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_admin/admin_settins.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_admin/ban_list_style.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_admin/user_admin.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_admin/serviece_admin.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_admin/employee_admin.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_admin/block_menu_admin.css" type="text/css" rel="stylesheet">
+
+
+    <link href="/css/style_admin/block_menu_admin.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_admin/tools_admin.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_admin/admin_settins.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_admin/ban_list_style.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_admin/user_admin.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_admin/serviece_admin.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_admin/employee_admin.css" type="text/css" rel="stylesheet">
+    <script src="/js/js.js" defer></script>
+    <script src="/js/js_admin/front_logical_admin.js" defer></script>
+    <script src="/js/js_admin/initialized_admin.js" defer></script>
+    <script src="/js/js_admin/target_click.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+</head>
+<body style="background-image: url(/images/Фон.jpg)">
+    <label id="trigger" th:text="${trigger}" hidden></label>
+    <div class="tools_admin">
+        <div class="tools_img">
+            <img th:src="'/img_user/'+${pers_info.getName_photo_file()}">
+            <label th:text="${pers_info.getLogin()}"></label>
+        </div>
+        <div class="tools_button">
+            <button onmouseenter="hover_service()" onmouseleave="leave_service()" onclick="open_service()" class="fa fa-list-alt" aria-hidden="true"></button>
+            <label id="lab_service" hidden>Меню</label>
+            <button onmouseenter="hover_employee()" onmouseleave="leave_employee()" onclick="open_employee()" class="fa fa-users" aria-hidden="true"></button>
+            <label id="lab_employee" hidden>Сотрудники</label>
+            <button onmouseleave="leave_user()" onmouseenter="hover_user()" onclick="open_user()" class="fa fa-user" aria-hidden="true"></button>
+            <label id="lab_user" hidden>Пользователи</label>
+            <button onmouseenter="hover_ban_list()" onmouseleave="leave_ban_list()" onclick="open_ban_list()" class="fa fa-ban" aria-hidden="true"></button>
+            <label id="lab_ban_list" hidden>Черный список</label>
+            <button onmouseenter="hover_settins()" onmouseleave="leave_settins()" onclick="open_settins()" class="fa fa-cog" aria-hidden="true"></button>
+            <label id="lab_settins" hidden>Настройки</label>
+            <a onmouseenter="hover_exit()" onmouseleave="leave_exti()" href="/shop" class="fa fa-sign-out" aria-hidden="true" ></a>
+            <label id="lab_exit" hidden>Выход</label>
+        </div>
+    </div>
+    <div class="settins_admin" id="settins_admin"hidden >
+        <h2>Настройки</h2>
+        <form th:action="'/update_settins'" method="post" enctype="multipart/form-data">
+        <div class="img_settins">
+            <div style="border: 2px solid silver;background-color: #6e6c6c; width: 120px;margin-left: 40px;border-radius: 10px">
+            <img th:src="'/img_user/'+${pers_info.getName_photo_file()}" id="pers_prev" >
+            </div>
+            <h3>Дата вашей регистрации</h3>
+            <input th:value="${pers_info.getData_registration()}" placeholder="Дата регистрации" readonly>
+            <input name="pers_photo" type="file" id="personal_photo" onchange="add_new_photo_user()">
+            <label for="personal_photo">Загрузить фото</label>
+        </div>
+        <div class="info_settins">
+            <input name="name_set" th:value="${pers_info.getName()}" placeholder="Ваше имя">
+            <input name="sur_set" th:value="${pers_info.getSur_name()}" placeholder="Ваша фамилия">
+            <input name="patr_set" th:value="${pers_info.getPatronymic()}" placeholder="Ваше отчество">
+            <input name="phone_set" th:value="${pers_info.getPhone()}" placeholder="Ваш номер тел">
+            <input name="login_set" th:value="${pers_info.getLogin()}"placeholder="Ваш логин">
+            <input name="password_set" th:value="${pers_info.getPassword()}" placeholder="Ваш пароль"><br>
+            <label style="position: absolute;color: lime;margin-top: 20px;"hidden>Успешно сохранено</label>
+            <button id="but_update_settins" type="submit"><i class="fa fa-check" aria-hidden="true"></i> Сохранить</button>
+        </div>
+        </form>
+    </div>
+    <div class="ban_list_admin" id="ban_list_admin"hidden >
+        <h2>Бан лист</h2>
+        <div style="margin-left: 50px; height: 400px; overflow-x: hidden;overflow-y: auto">
+            <input onkeyup="search_table_ban_list()" id="input_find_ban_list" placeholder="Поиск и фильтрация">
+            <table id="table_ban_list">
+                <tr><th style="width: 50px">Фото</th><th>ФИО</th><th>Статус</th><th>Причина</th><th>Разблокировать</th></tr>
+                <tr th:each="ban_list:${ban}"><td style="width: 50px; "><img th:src="'/img_user/'+${ban_list.getName_photo()}"></td><td th:text="${ban_list.getFIO()}"></td><td style="text-align: center;background-color: #9d3838">Забанен</td><td th:text="${ban_list.getReason()
+                }"></td>
+                    <td style="background-color: #207e20"><a th:href="'/unblock_user:'+${ban_list.getId_employee()}" style="width: 150px;text-align: center;">Разблокрировать</a></td></tr>
+            </table>
+        </div>
+    </div>
+    <div class="user_admin" id="user_admin" hidden>
+        <h2>Список аккаунтов клиентов</h2>
+        <div class="list_user">
+            <div th:each="users:${all_user}" class="users">
+                <label th:text="${users.getId()}" hidden></label>
+                <div class="user_photo_block">
+                    <img th:src="'/img_user/'+${users.getName_photo_file()}">
+                    <label th:text="${users.getLogin()}"></label>
+                </div>
+                <div class="users_block1">
+                    <input th:value="${users.getName()}" placeholder="Имя" readonly>
+                    <input th:value="${users.getSur_name()}" placeholder="Фамилия" readonly>
+                    <input th:value="${users.getPatronymic()}" placeholder="Отчество" readonly>
+                    <input th:value="${users.getPhone()}" placeholder="Номер тел" readonly>
+                </div>
+                <div class="users_block2">
+                    <input th:value="${users.getStatus()}" placeholder="Статус"  readonly>
+                    <input th:value="${users.getType()}" placeholder="Тип" readonly>
+                    <input th:value="${users.getLogin()}" placeholder="Login" readonly>
+                    <input th:value="${users.getData_registration()}" placeholder="Дата регистрации" readonly>
+                </div>
+                <div class="users_block3">
+                    <a th:name="${users.getId()}" onclick="open_block_menu(this)" class="btn btn-danger">Заблокировать</a>
+                    <a th:href="'/deleted_user:'+${users.getId()}" class="btn btn-danger">Удалить аккаунт</a>
+                    <a th:href="'/do_administration:'+${users.getId()}" class="btn btn-success">Сделать админом</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="service_admin"id="service_admin"hidden>
+        <div class="service_tools">
+            <button id="reg_sev" onclick="open_add_service()">Добавить изделие</button>
+            <button id="list_sev" onclick="open_list_service()">Список изделий</button>
+        </div>
+        <div class="list_service" id="list_service" >
+
+            <div th:each="serv:${service}" class="service">
+                <label hidden></label>
+                <div class="service_photo">
+                    <img th:src="'/img_service/'+${serv.getName_photo_file()}">
+                    <label th:text="${serv.getName_service()}"></label>
+                </div>
+                <div class="service_info">
+                    <ul>
+                        <li ><i style="float: left;margin-top: 5px;margin-left: 10px"  class="fa fa-github-alt" aria-hidden="true"></i><label th:text="${serv.getType()}"></label></li>
+                        <li ><i style="float: left;margin-top: 5px;margin-left: 10px" class="fa fa-money" aria-hidden="true"></i><label th:text="${serv.getPrice()}+' BY'"></label></li>
+                    </ul>
+                    <a th:href="'/deleted_service:'+${serv.getId()}" class="btn btn-danger">Удалить</a>
+                </div>
+            </div>
+        </div>
+        <div class="add_service" id="add_service" hidden>
+            <form th:action="'/add_service'" method="post" enctype="multipart/form-data">
+                <h2>Добавление изделия</h2><br>
+                <div style="margin-left: 30px;position: absolute;background-color: #6e6c6c">
+                    <img id="service_prev"><br>
+                    <input name="photo_service"  onchange="add_new_photo_service()" style=" background-color: transparent; width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden;position: absolute;z-index: -1;" id="add_photo_service" type="file" required>
+                    <label for="add_photo_service">Загрузить фото</label>
+                </div>
+                <div class="add_service_info" >
+                    <input name="name_service" placeholder="Введите название" required>
+                    <input name="price" placeholder="Введите стоимость " onkeyup ="this.value=this.value.replace(/[^\d.]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d.]/g,'')" required>
+                    <input name="type" placeholder="Введите категорию изделия" required>
+                    <input id="today_date_reg_service" placeholder="Дата изготовления" readonly>
+                </div>
+                <button type="submit" class="btn btn-success">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    <div class="employee_admin" id="employee_admin"hidden>
+       <div class="tool_employee">
+           <button id="reg_employee" onclick="open_registration_employee()">Регистрация курьера</button>
+           <button id="lis_employee" onclick="open_list_employee()">Список курьеров</button>
+       </div>
+       <div class="add_empoyee" id="add_empoyee" hidden >
+           <form th:action="'/add_employee'" method="post" enctype="multipart/form-data">
+               <h2>Регистация курьеров</h2>
+               <input id="id_service_employye" oninvalid="check_employee_position()" required hidden name="id_service">
+               <div class="reg_emoloyee_1">
+                   <img id="photo_employee" >
+                   <input name="photo_employee" onchange="add_new_photo_employee()" oninvalid="check_photo_employee()" id="add_phote_employee" type="file" style=" background-color: transparent; width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden;position: absolute;z-index: -1;" required><br>
+                   <label style="cursor: pointer" id="label_employe" for="add_phote_employee">Загрузить фото</label>
+               </div>
+               <div class="reg_emoloyee_2">
+                   <input name="name" placeholder="Введите имя курьера" required>
+                   <input name="sur_name" placeholder="Введите фамилию курьера" required>
+                   <input name="patronymic" placeholder="Введите отчество курьера" required>
+               </div>
+               <div class="reg_emoloyee_3">
+                   <input name="phone" placeholder="Введите номер тел " onkeyup="this.value = this.value.replace(/[^\d]/g,'');" minlength="9" maxlength="9" required>
+                   <input name="position" id="position_employee" placeholder="Заказ" onkeydown="return false;" readonly >
+                   <input id="today_date_reg_employee" placeholder="Сегодняшняя дата" readonly>
+               </div>
+               <button type="submit" class="btn btn-success">Сохранить</button>
+               <div class="panal_position" id="panal_position">
+                   <h4>Cписок доступных заказов</h4>
+                   <div th:each="position:${service}" class="position_all">
+                       <label th:text="${position.getId()}" hidden></label>
+                       <h5 th:text="${position.getType()}">Название</h5>
+                   </div>
+               </div>
+           </form>
+       </div>
+       <div class="list_employee" id="list_employee" >
+          
+            <div th:each="emp:${employee}" class="employee">
+                <img th:src="'/img_employee/'+${emp.getName_photo_file()}">
+                <div>
+                    <label>Имя</label><br>
+                    <input th:value="${emp.getName()}" placeholder="Имя" readonly><br>
+                    <label>Фамилия</label><br>
+                    <input th:value="${emp.getSecond_name()}" placeholder="Фамилия" readonly><br>
+                    <label>Отчество</label><br>
+                    <input th:value="${emp.getPatronymic()}" placeholder="Отчество" readonly><br>
+                </div>
+                <div>
+                    <label>Номер тел</label><br>
+                    <input th:value="${emp.getPhone()}" placeholder="Номер тел" readonly><br>
+                    <label>Заказ</label><br>
+                    <input th:value="${emp.getPosition()}" placeholder="Заказ" readonly><br>
+                    <label>Дата регистрации</label><br>
+                    <input th:value="${emp.getDate_settled()}" placeholder="Дата регистрации" readonly><br>
+                </div>
+                <div>
+                    <a th:href="'/deleted_employee:'+${emp.getId()}" class="btn btn-danger">Уволить</a>
+                </div>
+            </div>
+       </div>
+    </div>
+    <div class="block_menu" id="block_menu" hidden>
+        <form th:action="'/block_user'" method="post">
+            <button onclick="close_block_menu()" id="close_ban_menu" class="fa fa-times" aria-hidden="true"></button>
+            <input name="id_user" id="ubnlock_id" hidden>
+            <h3>Параметры блокировки пользователя</h3>
+            <textarea name="comment" id="comment_ban" placeholder="Введите причину" required1></textarea><br>
+            <button id="save_ban_list" class="btn btn-success">Сохранить</button>
+        </form>
+    </div>
+</body>
+</html>

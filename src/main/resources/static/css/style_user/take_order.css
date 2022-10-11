@@ -1,0 +1,81 @@
+body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.take_order{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 1550px;
+    height: 760px;
+    margin-top: -22px;
+}
+.take_order h2{
+    text-align: center;
+    color: #ec5252;
+}
+.take_order #close_take_order{
+    margin-top: -40px;
+    margin-right: 50px;
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    float: right;
+}
+.take_order label{
+    margin-left: 20px;
+    color: silver;
+}
+.take_order_panel input{
+    width: 250px;
+    margin-bottom: 20px;
+    margin-left: 20px
+}
+.take_order_panel{
+    width: 300px;
+    height: 500px;
+    border: 2px solid silver;
+    margin-left: 40%;
+}
+.take_order_panel button{
+    margin-top: 5px;
+    margin-left: 30%;
+}
+.emp_order_list{
+    border: 2px solid silver;
+    border-right: none;
+    border-left: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 300px;
+}
+.emp_order img{
+    height: 50px;
+    width: 50px;
+    margin-left: 10px;
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+}
+.emp_order label{
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 230px;
+    margin-left: -5px;
+    top: 5px;
+    position: relative;
+}
+.emp_order{
+    cursor: pointer;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 295px;
+    height: 50px;
+    border: 2px solid silver;
+    background-color: #6e6c6c;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}

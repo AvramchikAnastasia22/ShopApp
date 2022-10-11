@@ -1,0 +1,58 @@
+.tools_admin{
+    position: absolute;
+    height: 750px;
+    width: 110px;
+    border: 2px solid silver;
+    border-top: none;
+    border-left: none;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.tools_img img{
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+    height: 70px;
+    width: 70px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.tools_img label{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: silver;
+    text-align: center;
+    width: 105px;
+}
+.tools_img {
+    margin-bottom:220px ;
+}
+.tools_button label{
+    width: 105px;
+    text-align: center;
+    color: silver;
+}
+.tools_button button{
+    font-weight: 600;
+    font-size: 30px;
+    color: #ec5252;
+    background-color: transparent;
+    border: none;
+    height: 60px;
+    width: 60px;
+    margin-left: 25px;
+}
+.tools_button a{
+    font-weight: 600;
+    font-size: 30px;
+    color: #ec5252;
+    background-color: transparent;
+    border: none;
+    height: 60px;
+    width: 60px;
+    margin-left: 25px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 20px;
+}

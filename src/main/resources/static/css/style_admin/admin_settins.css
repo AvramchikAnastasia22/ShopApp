@@ -1,0 +1,70 @@
+.settins_admin{
+    position: absolute;
+    height: 400px;
+    width: 600px;
+    border: 2px solid silver;
+    margin-left: 33%;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-top: 2%;
+}
+.settins_admin h2{
+    color: #ec5252;
+    text-align: center;
+}
+.img_settins{
+    height: 170px;
+}
+.img_settins h3{
+    width: 400px;
+    position: absolute;
+    margin-top: -120px;
+    margin-left: 200px;
+    color: silver;
+    font-weight: 700;
+}
+.img_settins input{
+    position: absolute;
+    margin-top: -60px;
+    text-align: center;
+    margin-left: 200px;
+    width: 340px;
+    cursor: default;
+}
+.img_settins img{
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+    height: 120px;
+    width: 120px;
+    border: 2px solid silver;
+    border-radius: 10px;
+}
+.img_settins #personal_photo{
+    background-color: transparent;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.img_settins label{
+    color: silver;
+    cursor: pointer;
+    font-weight: 800;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+.info_settins{
+    margin-left: 10px;
+}
+.info_settins input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.info_settins button{
+    width: 250px;
+    margin-left: 27%;
+    margin-top: 20px;
+    background-color: #866c03;
+}

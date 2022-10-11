@@ -1,0 +1,113 @@
+.service_user{
+    position: absolute;
+    border: 2px solid silver;
+    width: 1200px;
+    height: 590px;
+    margin-left: 15%;
+    margin-top: 2%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.tools_service_user{
+    position: absolute;
+    border: 2px solid silver;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    width: 200px;
+    height: 586px;
+}
+.tools_service_user button{
+    background-color: transparent;
+    width: 200px;
+    height: 100px;
+    color: #ec5252;
+    border: 2px solid silver;
+    border-top: none;
+}
+.list_servie_user_all h2{
+    margin-left: 200px;
+    color: #ec5252;
+    text-align: center;
+}
+.l{
+    margin-left: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 1000px;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+.service_user_all{
+    background: rgba(107, 97, 97, 0.6);
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 2px solid #ec5252;
+    width: 200px;
+    height: 230px;
+}
+.service_user_all img{
+    height: 180px;
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+    width: 180px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.service_user_all label{
+    width: 200px;
+    color: silver;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.take_order_all h2{
+    margin-left: 200px;
+    color: #ec5252;
+    text-align: center;
+}
+
+.la{
+    margin-left: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 1000px;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 20px;
+}
+
+.service_user_a{
+    cursor: pointer;
+    background: rgba(107, 97, 97, 0.6);
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 2px solid #ec5252;
+    width: 200px;
+    height: 230px;
+}
+.service_user_a img{
+    height: 180px;
+    object-fit: cover;
+    border: none !important;
+    box-shadow: none !important;
+    width: 180px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.service_user_a label{
+    width: 200px;
+    color: silver;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

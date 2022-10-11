@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <link href= "https://use.fontawesome.com/releases/v5.6.1/css/all.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="/static/css/style_user/tools_user.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_user/settins_user.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_user/history_user.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_user/employee_user.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_user/service_user.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/style_user/take_order.css" type="text/css" rel="stylesheet">
+
+    <link href="/css/style_user/take_order.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_user/tools_user.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_user/settins_user.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_user/history_user.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_user/employee_user.css" type="text/css" rel="stylesheet">
+    <link href="/css/style_user/service_user.css" type="text/css" rel="stylesheet">
+    <script src="/js/js_user/initialized_user.js" defer></script>
+    <script src="/js/js_user/front_logical_user.js" defer></script>
+    <script src="/js/js_user/target_user.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+</head>
+<body style="background-image: url(/images/Фон.jpg)">
+    <label id="trigger_user" th:text="${trigger}"></label>
+    <div class="tools_admin">
+        <div class="tools_img">
+            <img th:src="'/img_user/'+${pers_info.getName_photo_file()}">
+            <label th:text="${pers_info.getLogin()}"></label>
+        </div>
+        <div class="tools_button">
+            <button onclick="open_service_user()" onmouseenter="hover_service_user()" onmouseleave="leave_service_user()" class="fa fa-list-alt" aria-hidden="true"></button>
+            <label id="service_lab" hidden>Меню</label>
+            <button onclick="open_employee_user()" onmouseenter="hover_employee_user()" onmouseleave="leave_employee_user()" class="fa fa-user" aria-hidden="true"></button>
+            <label id="employee_lab" hidden>Список курьеров</label>
+            <button onclick="open_history_user()" onmouseenter="hover_history_user()" onmouseleave="leave_history_user()" class="fa fa-history" aria-hidden="true"></button>
+            <label id="history_lab" hidden>История заказов</label>
+            <button onclick="open_settins_user()" onmouseenter="hover_settins_user()" onmouseleave="leave_settins_user()" class="fa fa-cog" aria-hidden="true"></button>
+            <label id="settins_lab" hidden>Настройки</label>
+            <a href="/shop" onmouseenter="hover_exit_user()" onmouseleave="leave_exit_user()" class="fa fa-sign-out" aria-hidden="true" ></a>
+            <label id="exit_lab" hidden>Выход</label>
+        </div>
+    </div>
+    <div class="settins_admin" id="settins_admin"hidden >
+        <h2>Настройки</h2>
+        <form th:action="'/update_settins_user'" method="post" enctype="multipart/form-data">
+            <div class="img_settins">
+                <div style="border: 2px solid silver;background-color: #6e6c6c; width: 120px;margin-left: 40px;border-radius: 10px">
+                    <img th:src="'/img_user/'+${pers_info.getName_photo_file()}" id="pers_prev" >
+                </div>
+                <h3>Дата вашей регистрации</h3>
+                <input th:value="${pers_info.getData_registration()}" placeholder="Дата регистрации" readonly>
+                <input name="pers_photo" type="file" id="personal_photo" onchange="add_new_photo_user_user()">
+                <label for="personal_photo">Загрузить фото</label>
+            </div>
+            <div class="info_settins">
+                <input name="name_set" th:value="${pers_info.getName()}" placeholder="Ваше имя">
+                <input name="sur_set" th:value="${pers_info.getSur_name()}" placeholder="Ваша фамилия">
+                <input name="patr_set" th:value="${pers_info.getPatronymic()}" placeholder="Ваше отчество">
+                <input name="phone_set" th:value="${pers_info.getPhone()}" placeholder="Ваш номер тел">
+                <input name="login_set" th:value="${pers_info.getLogin()}"placeholder="Ваш логин">
+                <input name="password_set" th:value="${pers_info.getPassword()}" placeholder="Ваш пароль"><br>
+                <label style="position: absolute;color: lime;margin-top: 20px;"hidden>Успешно сохранено</label>
+                <button id="but_update_settins" type="submit"><i class="fa fa-check" aria-hidden="true"></i> Сохранить</button>
+            </div>
+        </form>
+    </div>
+    <div class="history_user" id="history_user" hidden >
+        <div class="tools_history">
+            <button onclick="open_personal_history_user()" id="list_personal_history_user">Ваша история заказов</button>
+            <button onclick="open_record_user()" id="nearest_day_user">Ближайшие заказы</button>
+        </div>
+        <div id="personal_history" class="personal_history" hidden>
+            <h2>Ваша история заказов</h2>
+            <input id="serch_hist" placeholder="Поиск и фильтрация">
+            <table onkeyup="search_history()" id="table_history">
+                <tr><th>ФИО курьера</th><th>Вид доставки</th><th>Стоимость BY</th><th>Дата</th></tr>
+                <tr th:each="history:${list_history}"><td th:text="${history.getFIO_employee()}"></td><td th:text="${history.getType()}"></td><td th:text="${history.getPrice()}+' BY'"></td><td th:text="${history.getDate()}"></td></tr>
+            </table>
+        </div>
+        <div id="nearest_day" class="nearest_day">
+            <h2>Ваши ближайшие заказы</h2>
+            <input onkeyup="search_records()" id="search_rec" placeholder="Поиск фильтрация">
+            <table id="table_record">
+                <tr><th hidden>id_employee</th><th>Наименование</th><th>ФИО курьера</th><th>Стоимость BY</th><th>Отменить заказ</th></tr><br>
+                <tr th:each="record:${list_record}"><td hidden>id_employee</td><td th:text="${record.getType()}"></td><td th:text="${record.getFIO_employee()}"></td><td th:text="${record.getPrice()}+' BY'"></td>
+                    <td><a th:href="'/cancel_record:'+${record.getId()}" class="btn btn-danger">Отменить заказ</a></td></tr>
+            </table>
+        </div>
+    </div>
+    <div class="employee_user" id="employee_user"hidden>
+            <h2>Наши курьеры</h2>
+            <div th:each="employee:${all_employee}"  class="card_emploeyy">
+                <div class="card-body">
+                    <img th:src="'/img_employee/'+${employee.getName_photo_file()}">
+                    <h6 th:text="${employee.getName()}+' '+${employee.getSecond_name()}+' '+${employee.getPatronymic()}" class="card-title"></h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li th:text="${employee.getPosition()}" class="list-group-item"></li>
+                    <li th:text="${employee.getDate_settled()}" class="list-group-item"></li>
+                </ul>
+            </div>
+    </div>
+    <div class="service_user" id="service_user"hidden >
+        <div class="tools_service_user">
+            <button onclick="open_service_list_user()" id="open_list_service_user">Меню</button>
+            <button onclick="open_service_take_order()" id="open_take_order_user">Сделать заказ</button>
+        </div>
+        <div class="list_servie_user_all" id="list_servie_user_all">
+            <h2>Мы предлагаем</h2><br>
+            <div  class="l">
+                <div th:each="service:${list_service}" class="service_user_all">
+                    <img th:src="'/img_service/'+${service.getName_photo_file()}">
+                    <label th:text="${service.getName_service()}"></label>
+                </div>
+            </div>
+        </div>
+        <div class="take_order_all" id="take_order_all" hidden >
+            <h2>Заказ</h2>
+            <div  class="la" id="la">
+                <div th:each="service:${list_service}" class="service_user_a">
+                    <label hidden th:text="${service.getId()}"></label>
+                    <img th:src="'/img_service/'+${service.getName_photo_file()}">
+                    <label th:text="${service.getName_service()}"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="take_order" id="take_order" hidden>
+        <h2>Параметры заказа</h2>
+        <button onclick="open_take_order()" id="close_take_order" class="fa fa-times" aria-hidden="true"s></button>
+        <div class="take_order_panel">
+            <form th:action="'/add_record'"method="post">
+                <input name="id_service" id="id_ser" hidden required>
+                <input name="id_employee" id="id_emp" hidden required>
+                <label>Курьер</label><br>
+                <input name="fio_employee" id="FIO_employee" placeholder="Выберите курьера"  onkeydown="return false;" required>
+                <label>Время и день</label><br>
+                <input name="date" id="order_date" type="datetime-local" required>
+                <div  class="emp_order_list" id="emp_order_list">
+                    <div th:each="emp:${all_employee}" class="emp_order">
+                        <label th:text="${emp.getId()}" hidden></label>
+                        <label hidden th:text="${emp.getId_service()}"></label>
+                        <img th:src="'/img_employee/'+${emp.getName_photo_file()}">
+                        <label th:text="${emp.getName()}+' '+${emp.getSecond_name()}+' '+${emp.getPatronymic()}"></label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success">Заказать</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
